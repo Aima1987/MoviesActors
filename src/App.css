@@ -1,6 +1,37 @@
 .App {
   text-align: center;
 }
+.actors{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  padding: 1rem 0;
+}
+.actor{
+  width: 18%;
+  box-shadow: 4px 4px 15px -2px #000000;
+  margin: 0 5px 10px 0;
+}
+img{
+  width: 100%;
+}
+h3{
+  font-size: 15px;
+  text-align: center;
+}
+.knowfor{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width:700px) {
+  .actor{
+    width: 40%;
+  }
+}
+
+
 
 .App-logo {
   height: 40vmin;
