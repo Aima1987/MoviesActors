@@ -4,17 +4,38 @@ import {Button,Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap'
 class ModalPage extends React.Component{
     constructor(){
         super()
-        this.state={isModalOpen:true}
+        this.state={
+            isModalOpen:true,
+            imgUrl:"http://images.tmdb.org/t/p/w185",            
+        }
     }
     toggle = () =>{
         this.setState({isModalOpen:!this.state.isModalOpen})
+        this.props.isOpen()
     }
     render(){
         return(
             <div className="modal">
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggle}>
-                    <ModalHeader>The name of the Actor</ModalHeader>
-                    <ModalBody>This is the Body of my Moda</ModalBody>
+                    <ModalHeader>{this.props.data.name}</ModalHeader>
+                    <ModalBody>
+                        <div>
+                            <img src={`${this.state.imgUrl}${this.props.data.profile_path}`} className="imagePopUp"/>
+                            <p>Popularity {this.props.data.popularity}</p>
+                            <h2>Known for</h2>
+                            <div className="containerMovies">
+                                {
+                                    this.props.data.known_for.map((movie)=>{
+                                        return(
+                                            <div className="miniimage">
+                                            <img src={`${this.state.imgUrl}${movie.poster_path}`} alt=''/>
+                                        </div>
+                                        ) 
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </ModalBody>
                     <ModalFooter><Button onClick={this.toggle}>Close</Button></ModalFooter>
                 </Modal>
             </div>

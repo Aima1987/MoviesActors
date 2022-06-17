@@ -9,7 +9,8 @@ constructor(){
   this.state = {
     data:[],
     imgUrl:"http://images.tmdb.org/t/p/w185",
-    openModal:false
+    openModal:false,
+    actorToShow:{}
   }
 }
 componentDidMount(){
@@ -25,13 +26,13 @@ componentDidMount(){
   }
   })()
 }
-modal = (movie) =>{
-  this.setState({openModal:!this.state.openModal})
+modal = (movie = {}) =>{
+  this.setState({openModal:!this.state.openModal, actorToShow:movie})
 }
   render(){
     return(
       <div className='actors'>
-        {this.state.openModal ?<ModalPage></ModalPage>:null}
+        {this.state.openModal ?<ModalPage isOpen={this.modal} data={this.state.actorToShow}></ModalPage>:null}
         {
           this.state.data.map(movie=>{
            return(

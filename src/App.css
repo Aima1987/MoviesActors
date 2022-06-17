@@ -16,6 +16,35 @@
 img{
   width: 100%;
 }
+
+.imagePopUp{
+  width: 35%;
+  display: block;
+  margin: auto;
+  border-radius: 30px;
+}
+
+.miniimage{
+  width: 25%;
+  display: inline-block;
+}
+
+.containerMovies{
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.imagePopUp{
+  width: 35%;
+  display: inline-block;
+  margin: auto;
+  border-radius: 20px;
+}
+
 h3{
   font-size: 15px;
   text-align: center;
